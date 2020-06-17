@@ -1,5 +1,5 @@
-# rover
-Rovers On Mars
+# Rovers On Mars
+
 This is a console app that solves the Mars Rovers problem.
 
 INPUT:
