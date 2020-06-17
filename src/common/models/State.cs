@@ -48,6 +48,10 @@ namespace common.models
             return this.XPos == location.XPos && this.YPos == location.YPos;
         }
 
+        /// <summary>
+        /// Equivalent to MemebershipClone
+        /// </summary>
+        /// <returns></returns>
         public GridPosition Copy()
         {
             return new GridPosition { XPos = this.XPos, YPos = this.YPos };

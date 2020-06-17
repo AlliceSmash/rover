@@ -84,6 +84,5 @@ namespace roverApp
                 Console.WriteLine("Press esc if you want to exit, otherwise, press Enter to play another round!");
             }
         }
-           
     }
 }
