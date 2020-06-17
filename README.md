@@ -1,6 +1,6 @@
 # Rovers On Mars
 
-This is a console app that solves the Mars Rovers problem.
+This is a .NetCore 3.1 console app that solves the Mars Rovers problem. The solution includes four projects: the consoleApp, the stateMachine, common which defines interfaces and models, and tests.
 
 INPUT:
 The first line of input is the upper-right coordinates of the plateau, the
