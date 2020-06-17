@@ -9,6 +9,8 @@ namespace roverApp
 {
     class Program
     {
+        static List<string> _validOrientation = new List<string> {"S", "N","W", "E"};
+
         static void Main(string[] args)
         {
             var serviceprovider = new ServiceCollection()
@@ -41,7 +43,7 @@ namespace roverApp
                 bool allRoversAreDone = false;
                 List<string> outputs = new List<string>();
                 Console.WriteLine("For each rover, input x and y coordinate," +
-                      " and facing direction (one of N S E W), then press ENTER, ");
+                      " and facing direction (one of N S E W), press ENTER, ");
 
                 Console.WriteLine("input command sequence such as LMLMR. When you finish entering commands for all Rovers, Press ENTER TWICE to see your results.");
                 while (!allRoversAreDone)
@@ -57,14 +59,13 @@ namespace roverApp
                         var roverLine = roverState.Split(' ');
                         xpos = int.Parse(roverLine[0]);
                         ypos = int.Parse(roverLine[1]);
-                        direction = (Direction)roverLine[2].ToUpperInvariant()[0];
-
+                        direction = convertToDirection(roverLine[2]);
                     }
-                    catch (InvalidCastException ex)
+                    catch (Exception ex)
                     {
-                        Console.BackgroundColor = ConsoleColor.Blue;
+                        Console.BackgroundColor = ConsoleColor.Cyan;
+
                         Console.WriteLine(ex.Message);
-                        Console.BackgroundColor = ConsoleColor.Black;
                         return;
                     }
                     var initState = new State
@@ -84,5 +85,21 @@ namespace roverApp
                 Console.WriteLine("Press esc if you want to exit, otherwise, press Enter to play another round!");
             }
         }
+
+        static Direction convertToDirection(string input)
+        {
+
+            if (input.Length != 1) throw new InvalidOperationException("invalid rover orientation");
+           
+            if(_validOrientation.Contains(input.ToUpperInvariant()))
+            {
+                return (Direction)input.ToUpperInvariant()[0];
+            }
+            else
+            {
+                throw new InvalidOperationException("invalid input for Rover orientation");
+            }
+        }
+
     }
 }
