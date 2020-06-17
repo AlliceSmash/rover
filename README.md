@@ -12,9 +12,9 @@ rover's position (X Y N) where X and Y are integers and N is one of the letters 
 The second line is a sequence of commands such as LMRL where L/R means turning L/R,
 M means move forward a grid depending on the rover's orientation.
 
-The console app input is not quite user friendly. You have to press enter twice to indicate all rover inputs are done.
+The console app input is not quite user friendly. The input validation is primitive, but that was not my focus in this exercise. In addition, you have to press enter twice to indicate all rover inputs are done. Sorry :(
 
-There are many enhancement can be done. 1. logging. 2. error checking/handling. For instance, we should check if the initial state/position 
+There are many enhancement can be done. 1. logging. 2. error checking/handling. For instance, the user input has to follow the exact guidelines, otherwise, it will just throw excption. another example is that we should check if the initial state/position 
 is off the grid. 3. currently if a command causes a rover to be off the grid, we do not throw exception nor log, instead we do not make a move,
 and continue with the next command. This is a reasonable because it behaves the same way when a move causes the rover to collide with another rover
 who stays on the grid once it was deployed.
